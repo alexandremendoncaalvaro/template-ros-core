@@ -18,8 +18,8 @@ while not rospy.is_shutdown():
     msg.v = 3.0
     msg.omega = 0.0
     pub.publish(msg)
-    time.sleep()
+    time.sleep(1)
     msg.v = 0.0
     msg.omega = 0.0
     pub.publish(msg)
-    time.sleep()
+    time.sleep(1)
