@@ -15,4 +15,6 @@ msg=Twist2DStamped()
 
 msg.v=1
 
-pub.publish(msg)
+while not rospy.is_shutdown():
+	pub.publish(msg)
+	time.sleep(1)
