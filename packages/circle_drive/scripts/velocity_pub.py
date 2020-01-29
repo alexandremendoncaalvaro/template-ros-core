@@ -6,7 +6,7 @@ import time
 
 rospy.init_node('modified_velocity')
 
-pub=rospy.Publisher('/modified_velocity/velocity',
+pub=rospy.Publisher('/duckpi4/kinematics_node/velocity',
                         Twist2DStamped,
                         queue_size=10)
 
