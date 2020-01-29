@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import time
 import rospy
-from duckitown_msgs.msg import Twist2DStamped
+from duckietown_msgs.msg import Twist2DStamped
 
 rospy.init_node('modified_velocity')
 
