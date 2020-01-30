@@ -18,6 +18,6 @@
 		<arg name="ai_interval" value="$(arg ai_interval)"/>
 		<arg name="/lane_following/stop_line_filter" default="false" /> <!-- will not every allow a transition into COORDINATION mode -->
 		<arg name="vehicle_avoidance" default="true"/>
-		<remap from="/duckpi4/lane_controller_node/car_cmd" to="/duckpi4/new_vel/car_cmd">
+		<remap from="/duckpi4/lane_controller_node/car_cmd" to="/duckpi4/new_vel/car_cmd"/>
 	</include>
 </launch>
