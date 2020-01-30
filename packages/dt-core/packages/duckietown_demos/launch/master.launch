@@ -196,7 +196,7 @@
 	<!-- no remappings for car_cmd_switch - full topic names specified in params yaml -->
 	<remap from="car_cmd_switch_node/cmd_lane_following" to="lane_controller_node/lane_control"/>
 	<group unless="$(arg vehicle_avoidance)">
-			<remap from="vehicle_avoidance_control_node/car_cmd" to="anything/car_cmd" />
+			<remap from="vehicle_avoidance_control_node/car_cmd" to="new_vel/car_cmd" />
 	</group>
 
 
@@ -379,7 +379,7 @@
 	<group if="$(arg /vehicle_avoidance/control)">
 		<remap from="vehicle_avoidance_control_node/detection" to="vehicle_detection_node/detection"/>
 		<remap from="vehicle_avoidance_control_node/vehicle_pose" to="vehicle_filter_node/pose"/>
-		<remap from="vehicle_avoidance_control_node/car_cmd_in" to="lane_controller_node/car_cmd"/>
+		<remap from="vehicle_avoidance_control_node/car_cmd_in" to="new_vel/car_cmd"/>
 		<include file="$(find vehicle_detection)/launch/vehicle_avoidance_control_node.launch" >
 
 
@@ -693,7 +693,7 @@
 <group if="$(arg parallel_autonomy)">
 	<remap from="lane_supervisor_node/lane_pose" to="lane_filter_node/lane_pose"/>
 	<remap from="lane_supervisor_node/car_cmd_joy" to="joy_mapper_node/car_cmd"/>
-	<remap from="lane_supervisor_node/car_cmd_lane" to="lane_controller_node/car_cmd"/>
+	<remap from="lane_supervisor_node/car_cmd_lane" to="new_vel/car_cmd"/>
 	<remap from="lane_supervisor_node/stop_line_reading" to="stop_line_filter_node/stop_line_reading"/>
 	<remap from="intersection_supervisor_node/mode" to="fsm_node/mode"/>
 	<remap from="intersection_supervisor_node/joy" to="joy"/>
@@ -790,13 +790,13 @@
 <group if="$(arg auto_calibration)">
 
   <remap from="auto_calibration_node/mode" to="fsm_node/mode"/>
-	<remap from="auto_calibration_node/car_cmd_in" to="lane_controller_node/car_cmd"/>
+	<remap from="auto_calibration_node/car_cmd_in" to="new_vel/car_cmd"/>
 	<remap from="auto_calibration_node/tag" to="apriltags_postprocessing_node/apriltags_out"/>
   <remap from="auto_calibration_node/at_stop_line" to="stop_line_filter_node/at_stop_line"/>
 	<remap from="auto_calibration_node/calibration_calculation_stop" to="auto_calibration_calculation_node/calibration_calculation_stop"/>
 
 	<remap from="auto_calibration_calculation_node/mode" to="fsm_node/mode"/>
-	<remap from="auto_calibration_calculation_node/car_cmd_in" to="lane_controller_node/car_cmd"/>
+	<remap from="auto_calibration_calculation_node/car_cmd_in" to="new_vel/car_cmd"/>
 	<remap from="auto_calibration_calculation_node/wheels_cmd" to="wheels_driver_node/wheels_cmd"/>
 	<remap from="auto_calibration_calculation_node/tag" to="tag_detections"/>
 
