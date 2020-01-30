@@ -19,7 +19,6 @@ def callback(msg):
     pub.publish(msg)
 
 
-rospy.init_node('velocity_listener')
 rospy.Subscriber('/duckpi4/new_velocity/car_cmd',
                  Twist2DStamped,
                  callback)
