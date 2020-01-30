@@ -12,14 +12,16 @@ pub=rospy.Publisher('/duckpi4/lane_controller_node/car_cmd',
 
 time.sleep(1)
 
-msg=Twist2DStamped()
 
-while not rospy.is_shutdown():
-    msg.v = 0.2
-    msg.omega = 0.0
+def callback(msg):
+    msg.v *= 0.5
+    msg.omega *= 0.5
     pub.publish(msg)
-    time.sleep(1)
-    msg.v = 0.0
-    msg.omega = 0.0
-    pub.publish(msg)
-    time.sleep(1)
+
+
+rospy.init_node('velocity_listener')
+rospy.Subscriber('/duckpi4/new_velocity/car_cmd',
+                 Twist2DStamped,
+                 callback)
+
+rospy.spin()
